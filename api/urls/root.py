@@ -4,6 +4,7 @@ from rest_framework import routers
 
 from api.views.video import VideoViewset, VideoCategoriaViewset
 from api.views.categoria import CategoriaViewset
+from api.views.videofree import VideoFreeListView
 
 router = routers.DefaultRouter()
 router.register('videos', VideoViewset, basename='videos')
@@ -12,5 +13,6 @@ router.register('categorias', CategoriaViewset, basename='categorias')
 
 urlpatterns = [
     path('', include(router.urls), name='api'),
-    path('categorias/<int:pk>/videos/', VideoCategoriaViewset.as_view({'get': 'list'}), name='video-categoria')
+    path('categorias/<int:pk>/videos/', VideoCategoriaViewset.as_view({'get': 'list'}), name='video-categoria'),
+    path('video/free/', VideoFreeListView.as_view(), name='video-free')
 ]

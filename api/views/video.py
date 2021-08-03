@@ -10,6 +10,7 @@ class VideoViewset(viewsets.ModelViewSet):
     filter_backends = [DjangoFilterBackend,
                        filters.OrderingFilter, filters.SearchFilter]
     search_fields = ['titulo']
+    page_size = 2
 
 
 class VideoCategoriaViewset(viewsets.ModelViewSet):
